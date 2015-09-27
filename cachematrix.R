@@ -1,15 +1,32 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Our goal is to write functions that can calculate the inverse of a matrix once and cache the result in a global environment for ease of recall in the future.  The purpose of caching the result is to reduce the amount of time a code needs to run if our code requires multiple iterations.
 
-## Write a short comment describing this function
+## The makeCacheMatrix function is creating a new variable "i" which stores the value of the inverse of a matrix to be entered at a later time.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  i <- NULL
+  set <- function(y) {
+    x <<- y
+    i <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(inv) i <<- inv
+  getinverse <- function() i
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
-## Write a short comment describing this function
+## This function calculates the inverse of the matrix and stores it to variable "i".
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  i <- x$getinverse()
+  if(!is.null(i)) {
+    message("getting cached data")
+    return(i)
+  }
+  data <- x$get()
+  i <- solve(data)
+  x$setinverse(i)
+  i
 }
