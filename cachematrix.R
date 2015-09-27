@@ -1,4 +1,4 @@
-## Our goal is to write functions that can calculate the inverse of a matrix once and cache the result in a global environment for ease of recall in the future.  The purpose of caching the result is to reduce the amount of time a code needs to run if our code requires multiple iterations.
+## The goal is to write functions that can calculate the inverse of a matrix once and cache the result in a global environment for ease of recall in the future.  The purpose of caching the result is to reduce the amount of time a code needs to run if our code requires multiple iterations.
 
 ## The makeCacheMatrix function is creating a new variable "i" which stores the value of the inverse of a matrix to be entered at a later time.
 
